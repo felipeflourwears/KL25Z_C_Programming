@@ -1,5 +1,17 @@
 #include <MKL25Z4.H>
 
+/* Toggling LEDs using SysTick counter
+This program let the SysTick counter run freely and
+dumps the counter values to the tri-color LEDs
+continuously.
+The counter value is shifted 4 places to the right
+so that the changes of LEDs will be slow enough to
+be visible.
+SysTick counter has 24 bits.
+The red LED is connected to PTB18.
+The green LED is connected to PTB19.
+*/
+
 void delay1ms(void);
 
 int main (void) {
@@ -18,6 +30,15 @@ PTB->PDOR = c >> 4; /* line up counter MSB with LED */
 }
 }
 
+
+/*
+Using the System Tick timer, write a function that makes a
+delay of 1 ms. Assume sysclk = 41.94 MHz.
+Solution: From the equation delay = (N + 1) / sysclk
+(N + 1) = delay × sysclk = 0.001 sec × 41.94 MHz = 41,940
+==>
+ N = 41,940 – 1 = 41939
+*/
 void delay1ms(void) {
 SysTick->LOAD = 41939;
 SysTick->CTRL = 0x5; /* Enable the timer and choose sysclk
