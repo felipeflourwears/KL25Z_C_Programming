@@ -38,6 +38,7 @@ Solution: From the equation delay = (N + 1) / sysclk
 (N + 1) = delay × sysclk = 0.001 sec × 41.94 MHz = 41,940
 ==>
  N = 41,940 – 1 = 41939
+ 
 */
 void delay1ms(void) {
 SysTick->LOAD = 41939;
