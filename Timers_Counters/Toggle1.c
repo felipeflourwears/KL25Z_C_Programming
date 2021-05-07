@@ -42,7 +42,7 @@ Solution: From the equation delay = (N + 1) / sysclk
 */
 void delay1ms(void) {
 SysTick->LOAD = 41939;
-SysTick->CTRL = 0x5; /* Enable the timer and choose sysclk
+SysTick->CTRL = 0x5; /* Enable the timer and choose sysclk 2^30
 as the clock source */
 while((SysTick->CTRL & 0x10000) == 0) /* wait until the
 COUNT flag is set */ { }
