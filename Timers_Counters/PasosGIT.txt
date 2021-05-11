@@ -1,6 +1,11 @@
 Pasos GIT
 Comandoss
 Añadir un archivo
+
+-------------------------------------------------------------------------------
+Manejo de entradas con "cd"
+regresar con "cd .."
+git status ---->Ver archivos
 -------------------------------------------------------------------------------
 CMD
 git add -A
